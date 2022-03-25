@@ -2,9 +2,9 @@ using System.Collections.Generic;
 
 namespace Gruyere.Models
 {
-  public class Treat
+  public class Flavor
   {
-    public Treat()
+    public Flavor()
     {
       this.JoinEntities = new HashSet<FlavorTreat>();
     }
