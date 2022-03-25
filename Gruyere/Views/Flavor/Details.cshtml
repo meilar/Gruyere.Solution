@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+<div class="container">
+  @await Html.PartialAsync("_Navbar")
+  @model Gruyere.Models.Flavor
+  <h1 class="display-4">@Model.Name</h1>
+
+  @if(@Model.JoinEntities.Count == 0)
+  {
+    <p>This flavor has not been incorporated into any treats.</p>
+    @if(ViewBag.Books.Count == 0)
+    {
+    @Html.ActionLink("Add a new treat", "Create", "Treat", null, new { @class = "btn btn-success"})
+    }
+    else
+    {
+    @Html.ActionLink("View existing treats", "Index", "Treat", null, new { @class = "btn btn-primary"})
+    }
+  }
+  else
+  {
+  <dl class="row">
+    <dt class="col-sm-3">This flavor is in these treats:</dt>
+    @foreach(var join in Model.JoinEntities)
+    {
+        <dd class="col-sm-9">@Html.ActionLink(join.Treat.Name, "Details", "Treat", new { @id = join.TreatId}, new { @class = "text-primary"}) | @Html.ActionLink("Delete flavor from this treat", "RemoveFlavor", "Treat", new { @id = join.FlavorTreatId}, new { @class = "text-danger"})</dd>
+    }
+  </dl>
+  @Html.ActionLink("Add this flavor to a treat", "Edit", "Treat", new { @id = Model.FlavorId}, new { @class = "btn btn-success"})
+  }
+  @await Html.PartialAsync("_Footer")
+</div> 
