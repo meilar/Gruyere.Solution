@@ -1,14 +1,15 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace Gruyeres.Models
+namespace Gruyere.Models
 {
   public class GruyereContextFactory : IDesignTimeDbContextFactory<GruyereContext>
   {
 
-    GruyeresContext IDesignTimeDbContextFactory<GruyereContext>.CreateDbContext(string[] args)
+    GruyereContext IDesignTimeDbContextFactory<GruyereContext>.CreateDbContext(string[] args)
     {
       IConfigurationRoot configuration = new ConfigurationBuilder()
           .SetBasePath(Directory.GetCurrentDirectory())
