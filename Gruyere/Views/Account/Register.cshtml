@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+@using Gruyere.ViewModels
+@model RegisterViewModel
+<div class="container">
+  @await Html.PartialAsync("_Navbar")
+    @using(Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+    @Html.LabelFor(user => user.Email)
+    @Html.TextBoxFor(user => user.Email)
+
+    @Html.LabelFor(user => user.Password)
+    @Html.PasswordFor(user => user.Password)
+
+    @Html.LabelFor(user => user.ConfirmPassword)
+    @Html.PasswordFor(user => user.ConfirmPassword)
+
+    <input type="submit" value="Register" />
+    }
+  @await Html.PartialAsync("_Footer")
+</div>
