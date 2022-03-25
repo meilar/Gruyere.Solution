@@ -8,7 +8,7 @@ namespace Gruyere.Models
     {
       this.JoinEntities = new HashSet<FlavorTreat>();
     }
-    public int TreatId {get;set;}
+    public int TreatId {get; set;}
     public string Name { get; set;}
     public virtual ApplicationUser User { get; set; }
     public virtual ICollection<FlavorTreat> JoinEntities { get; }
