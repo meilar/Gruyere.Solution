@@ -3,23 +3,23 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace Treats.Models
+namespace Gruyeres.Models
 {
-  public class TreatsContextFactory : IDesignTimeDbContextFactory<TreatsContext>
+  public class GruyereContextFactory : IDesignTimeDbContextFactory<GruyereContext>
   {
 
-    TreatsContext IDesignTimeDbContextFactory<TreatsContext>.CreateDbContext(string[] args)
+    GruyeresContext IDesignTimeDbContextFactory<GruyereContext>.CreateDbContext(string[] args)
     {
       IConfigurationRoot configuration = new ConfigurationBuilder()
           .SetBasePath(Directory.GetCurrentDirectory())
           .AddJsonFile("appsettings.json")
           .Build();
 
-      var builder = new DbContextOptionsBuilder<TreatsContext>();
+      var builder = new DbContextOptionsBuilder<GruyereContext>();
 
       builder.UseMySql(configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(configuration["ConnectionStrings:DefaultConnection"]));
 
-      return new TreatsContext(builder.Options);
+      return new GruyereContext(builder.Options);
     }
   }
 }

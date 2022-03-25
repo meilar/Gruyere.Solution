@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace Treats.Models
+namespace Gruyere.Models
 {
     public class ApplicationUser : IdentityUser
     {

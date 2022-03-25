@@ -33,8 +33,8 @@ Before downloading project files, you must have the following tools installed:
 
 ### Downloading the application
 
-- Open your command line and clone this project with the following instruction: `$ git clone https://www.github.com/meilar/Treats.Solution`
-- Open the project folder in a file browser. Navigate to the `Treats` folder.
+- Open your command line and clone this project with the following instruction: `$ git clone https://www.github.com/meilar/Gruyere.Solution`
+- Open the project folder in a file browser. Navigate to the `Gruyere` folder.
 - Create a new file named `appsettings.json`, and insert this block of code. Make sure to enter the userid and password you set up when installing MySQL Community Server in the brackets:
 ```
 {
@@ -46,7 +46,7 @@ Before downloading project files, you must have the following tools installed:
 
 ### Starting the application
 
-- Navigate to the project folder in your Terminal with the following command: `cd Treats.Solution/Treats`
+- Navigate to the project folder in your Terminal with the following command: `cd Gruyere.Solution/Gruyere`
 - Install project dependencies with the command `dotnet restore`
 - Confirm that the project builds successfully with the command `dotnet build`
 - Start the database with the command `dotnet ef restore`
