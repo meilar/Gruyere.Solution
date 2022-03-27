@@ -1,8 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Gruyere.Models;
+using Gruyere.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace Gruyere.Controllers
 {
@@ -46,6 +52,8 @@ namespace Gruyere.Controllers
     }
     public ActionResult Edit(int id)
     {
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
+      ViewBag.Flavors = _db.Flavors.ToList();
       var thisTreat = _db.Treats.FirstOrDefault(thisTreat => thisTreat.TreatId == id);
       return View(thisTreat);
     }

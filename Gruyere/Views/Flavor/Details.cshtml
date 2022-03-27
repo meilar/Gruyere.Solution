@@ -15,7 +15,7 @@
     }
     else
     {
-    @Html.ActionLink("Add to existing treat", "Edit", "Flavor", null, new { @class = "btn btn-primary"})
+    @Html.ActionLink("Add to existing treat", "Edit", "Flavor", new { @id = Model.FlavorId}, new { @class = "btn btn-primary"})
     }
   }
   else
@@ -27,7 +27,7 @@
         <dd class="col-sm-9">@Html.ActionLink(join.Treat.Name, "Details", "Treat", new { @id = join.TreatId}, new { @class = "text-primary"}) | @Html.ActionLink("Delete flavor from this treat", "RemoveFlavor", "Treat", new { @id = join.FlavorTreatId}, new { @class = "text-danger"})</dd>
     }
   </dl>
-  @Html.ActionLink("Add this flavor to a treat", "Edit", "Treat", new { @id = Model.FlavorId}, new { @class = "btn btn-success"})
+  @Html.ActionLink("Add this flavor to a treat", "Edit", "Flavor", new { @id = Model.FlavorId}, new { @class = "btn btn-success"})
   }
   @await Html.PartialAsync("_Footer")
 </div> 
