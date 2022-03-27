@@ -1,0 +1,20 @@
+@{
+  Layout = "_Layout";
+}
+@using System.Security.Claims
+<div class="container">
+  @await Html.PartialAsync("_Navbar")
+  @if(User.Identity.IsAuthenticated)
+{
+  <p>Are you ready to log out?</p>
+      @using (Html.BeginForm("LogOff", "Account"))
+    {
+        <input type="submit" class="btn btn-default" value="Log out" />
+    }
+}
+else
+{
+<p>@Html.ActionLink("Log in", "Login", "Account", null, new {@class = "btn btn-primary"})</p>
+}
+  @await Html.PartialAsync("_Footer")
+</div>

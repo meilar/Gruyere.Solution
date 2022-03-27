@@ -1,0 +1,43 @@
+@{
+  Layout = "_Layout";
+}
+<div class="container">
+  @await Html.PartialAsync("_Navbar")
+  <h1 class="display-4">Treat Overview</h1>
+  @using Gruyere.Models;
+  @if (Model.Count == 0)
+      {
+            <div class="text-center">
+              <p class="lead">There are no treats to display.</p>
+              <p>@Html.ActionLink("Add a new treat", "Create", "Treat", null, new { @class="btn btn-primary"})</p>
+            </div>
+      }
+      else
+      {  
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Treat ID #</th>
+            <th scope="col">Name</th>
+            <th scope="col">Details</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach (Treat treat in Model)
+          {
+          <tr>
+            <th scope="row">@treat.TreatId</th>
+            <td>@treat.Name</td>
+            <td>@Html.ActionLink("Details", "Details", "Treat", new { @id = treat.TreatId}, new { @class = "text-primary"})</td>
+            <td>@Html.ActionLink("Edit", "Edit", "Treat", new { @id = treat.TreatId}, new { @class = "text-warning"})</td>
+            <td>@Html.ActionLink("Delete", "Delete", "Treat", new { @id = treat.TreatId}, new { @class = "text-primary"})</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+      <p>@Html.ActionLink("Add a new Treat", "Create", "Treat", null, new { @class="btn btn-primary"})</p>
+      }  
+  @await Html.PartialAsync("_Footer")
+</div>

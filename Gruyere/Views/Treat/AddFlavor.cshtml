@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+<div class="container">
+  @await Html.PartialAsync("_Navbar")
+  @model Gruyere.Models.Treat
+  <div class="card card-body">
+    <h5 class="card-title">Add a flavor to: @Model.Name</h5>
+    <form action="~/Treat/AddFlavor" method="post">
+      @Html.HiddenFor(model => model.TreatId)
+      <div class="form-group">
+        @Html.DropDownList("FlavorId", (SelectList)ViewBag.FlavorId, "Select flavor", new { @class = "form-control" })
+      </div>
+      <button type="submit" class="btn btn-primary">Add flavor</button>
+      <a>@Html.ActionLink("Cancel", "Details", "Treat", new {id = Model.TreatId}, new { @class="btn btn-danger"})</a>
+    </form>
+  </div>
+  @await Html.PartialAsync("_Footer")
+</div> 

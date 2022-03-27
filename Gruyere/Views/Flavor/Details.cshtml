@@ -9,13 +9,13 @@
   @if(@Model.JoinEntities.Count == 0)
   {
     <p>This flavor has not been incorporated into any treats.</p>
-    @if(ViewBag.Books.Count == 0)
+    @if(ViewBag.Treats.Count == 0)
     {
     @Html.ActionLink("Add a new treat", "Create", "Treat", null, new { @class = "btn btn-success"})
     }
     else
     {
-    @Html.ActionLink("View existing treats", "Index", "Treat", null, new { @class = "btn btn-primary"})
+    @Html.ActionLink("Add to existing treat", "Edit", "Flavor", null, new { @class = "btn btn-primary"})
     }
   }
   else
