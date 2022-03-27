@@ -49,18 +49,13 @@ Before downloading project files, you must have the following tools installed:
 - Navigate to the project folder in your Terminal with the following command: `cd Gruyere.Solution/Gruyere`
 - Install project dependencies with the command `dotnet restore`
 - Confirm that the project builds successfully with the command `dotnet build`
-- Start the database with the command `dotnet ef restore`
+- Start the database with the command `dotnet ef database update`
 - Start the application with the following command: `dotnet run`
 - Open the displayed URL in a web browser, typically `http://localhost:5000`. Please note that this project was designed and tested in Google Chrome, and all features may not be supported in all browsers.
 
-## Further Exploration
-
-- Application currently allows you to add duplicate machine licenses to engineers, I would need to add some validation logic to prevent this from happening.
-- 
-
 ## Acknowledgements
 
-Thank you to my partner, Alex, for support in all ways. Thank you to my parents for encouraging technology exploration, even when resources were scarce. Thank you to the Kohlenberg Foundation for arranging the rug cleaning.
+Thank you to my partner, Alex, for support in all ways. Thank you to my parents for encouraging technology exploration, even when resources were scarce. Thank you to the Kohlenberg Foundation for supporting our choral performance.
 
 ## License 
 
