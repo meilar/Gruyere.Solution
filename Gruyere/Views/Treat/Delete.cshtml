@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+@model Gruyere.Models.Treat
+<div class="container">
+  @await Html.PartialAsync("_Navbar")
+  <h1 class="display-4">Are you sure you want to delete @Model.Name?</h1>
+  @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+  @using (Html.BeginForm())
+  {
+    <input type="submit" value="Delete" />
+  }
+  @Html.ActionLink("Back to treats", "Index")
+  @await Html.PartialAsync("_Footer")
+</div>

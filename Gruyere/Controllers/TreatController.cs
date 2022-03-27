@@ -36,6 +36,8 @@ namespace Gruyere.Controllers
 
     public ActionResult Details(int id)
     {
+      ViewBag.Flavors = _db.Flavors.ToList();
+      ViewBag.Treats = _db.Treats.ToList();
       var thisTreat = _db.Treats
           .Include(thisTreat => thisTreat.JoinEntities)
           .ThenInclude(join => join.Flavor)
