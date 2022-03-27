@@ -17,5 +17,17 @@
       <li class="nav-item">
         <p>@Html.ActionLink("Flavors", "Index", "Flavor", null, htmlAttributes: new { @class = "nav-link align-middle" })</p>
       </li>
+      @if(User.Identity.IsAuthenticated)
+      {
+      <li class="nav-item">
+        <p>@Html.ActionLink("Log Out", "LogOff", "Account", null, htmlAttributes: new { @class = "nav-link align-middle text-danger" })</p>
+      </li>
+      }
+      else 
+      {
+      <li class="nav-item">
+        <p>@Html.ActionLink("Log In", "Login", "Account", null, htmlAttributes: new { @class = "nav-link align-middle text-primary" })</p>
+      </li>
+      }
   </div>
 </nav>
