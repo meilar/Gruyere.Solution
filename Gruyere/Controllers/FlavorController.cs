@@ -59,10 +59,15 @@ namespace Gruyere.Controllers
     }
 
     [HttpPost]
-    public ActionResult Edit(Flavor flav)
+    public ActionResult Edit(Flavor flav, int TreatId)
     {
       _db.Entry(flav).State = EntityState.Modified;
       _db.SaveChanges();
+      if (TreatId != 0)
+      {
+        _db.FlavorTreats.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flav.FlavorId });
+        _db.SaveChanges();
+      }
       return RedirectToAction("Index");
     }
 

@@ -24,10 +24,12 @@
     <dt class="col-sm-3">This flavor is in these treats:</dt>
     @foreach(var join in Model.JoinEntities)
     {
-        <dd class="col-sm-9">@Html.ActionLink(join.Treat.Name, "Details", "Treat", new { @id = join.TreatId}, new { @class = "text-primary"}) | @Html.ActionLink("Delete flavor from this treat", "RemoveFlavor", "Treat", new { @id = join.FlavorTreatId}, new { @class = "text-danger"})</dd>
+        <dd class="col-sm-9">@Html.ActionLink(join.Treat.Name, "Details", "Treat", new { @id = join.TreatId}, new { @class = "text-primary"}) | @Html.ActionLink("Delete treat", "RemoveTreat", "Flavor", new { @id = join.FlavorTreatId}, new { @class = "text-danger"})</dd>
     }
   </dl>
   @Html.ActionLink("Add this flavor to a treat", "Edit", "Flavor", new { @id = Model.FlavorId}, new { @class = "btn btn-success"})
+  @Html.ActionLink("Edit", "Edit", "Flavor", new { @id = Model.FlavorId}, new { @class = "btn btn-warning"})
+  @Html.ActionLink("Delete", "Delete", "Flavor", new { @id = Model.FlavorId}, new { @class = "btn btn-danger"})
   }
   @await Html.PartialAsync("_Footer")
 </div> 
