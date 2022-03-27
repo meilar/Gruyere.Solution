@@ -1,0 +1,36 @@
+<h1 class="display-4">Flavor Overview</h1>
+@using Gruyere.Models;
+  @if (ViewBag.Flavors.Count == 0)
+      {
+            <div class="text-center">
+              <p class="lead">There are no flavors to display.</p>
+              <p>@Html.ActionLink("Add a new flavor", "Create", "Flavor", null, new { @class="btn btn-primary"})</p>
+            </div>
+      }
+      else
+      {  
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Flavor ID #</th>
+            <th scope="col">Name</th>
+            <th scope="col">Details</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach (Flavor flavor in ViewBag.Flavors)
+          {
+          <tr>
+            <th scope="row">@flavor.FlavorId</th>
+            <td>@flavor.Name</td>
+            <td>@Html.ActionLink("Details", "Details", "Flavor", new { @id = flavor.FlavorId}, new { @class = "text-primary"})</td>
+            <td>@Html.ActionLink("Edit", "Edit", "Flavor", new { @id = flavor.FlavorId}, new { @class = "text-warning"})</td>
+            <td>@Html.ActionLink("Delete", "Delete", "Flavor", new { @id = flavor.FlavorId}, new { @class = "text-danger"})</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+      <p>@Html.ActionLink("Add a new Flavor", "Create", "Flavor", null, new { @class="btn btn-primary"})</p>
+      }  

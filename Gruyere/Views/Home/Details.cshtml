@@ -1,0 +1,9 @@
+@{
+  Layout = "_Layout";
+}
+<div class="container">
+  @await Html.PartialAsync("_Navbar")
+  @await Html.PartialAsync("_Flavors")
+  @await Html.PartialAsync("_Treats")
+  @await Html.PartialAsync("_Footer")
+</div>

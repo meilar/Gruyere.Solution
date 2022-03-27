@@ -17,8 +17,8 @@ namespace Gruyere.Controllers
 
     public ActionResult Index()
     {
-      List<Treat> model = _db.Treats.ToList();
-      return View(model);
+      ViewBag.Treats = _db.Treats.ToList();
+      return View();
     }
 
     public ActionResult Create()
