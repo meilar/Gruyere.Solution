@@ -6,10 +6,10 @@
   @await Html.PartialAsync("_Navbar")
   @if(User.Identity.IsAuthenticated)
 {
-  <p>Are you ready to log out?</p>
+  <p class="display-4">Are you ready to log out?</p>
       @using (Html.BeginForm("LogOff", "Account"))
     {
-        <input type="submit" class="btn btn-default" value="Log out" />
+        <input type="submit" class="btn btn-danger" value="Log out" />
     }
 }
 else
