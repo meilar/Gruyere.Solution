@@ -71,7 +71,13 @@ namespace Gruyere.Controllers
       }
       return RedirectToAction("Index");
     }
-
+    public ActionResult RemoveFlavor(int id)
+    {
+      var thisJoin = _db.FlavorTreats.FirstOrDefault(join => join.FlavorTreatId == id);
+      _db.FlavorTreats.Remove(thisJoin);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
     public ActionResult Delete(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(thisTreat => thisTreat.TreatId == id);
