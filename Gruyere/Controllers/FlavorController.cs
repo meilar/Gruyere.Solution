@@ -12,6 +12,7 @@ using System.Security.Claims;
 
 namespace Gruyere.Controllers
 {
+  [Authorize]
   public class FlavorController : Controller
   {
     private readonly GruyereContext _db;
@@ -21,6 +22,7 @@ namespace Gruyere.Controllers
       _db = db;
     }
 
+    [AllowAnonymous]
     public ActionResult Index()
     {
       ViewBag.Flavors = _db.Flavors.ToList();
@@ -39,7 +41,7 @@ namespace Gruyere.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
+    [AllowAnonymous]
     public ActionResult Details(int id)
     {
       ViewBag.Flavors = _db.Flavors.ToList();
